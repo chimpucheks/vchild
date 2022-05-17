@@ -1,0 +1,286 @@
+ 
+ hybrid inheitance : single and ,multiple 
+multilevel inheritance : there is a chain of inheritance is known as multi level inheritance 
+
+class Animal{
+void eat(){system.out.println("eating...");}
+}
+class dog extends animal{
+void bark(){system.out.println("barking...");}
+}
+class BabyDog extends Dog {
+voidweep(){system.out.println.("weeping"...);}
+}
+classTestinheritance2{
+public static void main(string args[])}
+BabyDog d=new BabyDog();
+d.weep();
+d.bark();
+d.eat();
+}}
+
+
+hierarchical inherits : when 2 or more clss inherits a single class 
+
+
+            AGGREGATION
+ 
+ if a cls have  an entity reference it is konwn as aggregation it represents has  a relationship
+
+Cls Empolyee{
+int id;
+string name;
+Address address;//Address is a cls
+...
+
+}
+
+
+
+
+why use aggregation for the code reusability
+ when use aggregation
+
+method overloading: if a cls has multiple methods having same name but different signatures
+
+adavantages : by changing number of agruments
+method overloading             : by changing the data type
+
+class TestOverloading4{
+public static void main(string[]args){system.out.println("main with string[]");}
+public static void main(string[]args){system.out.println("mian with string");}
+public static void main(){system.out.println("main without argus");}
+}
+ main with string[] _ output
+
+method overriding : if subcls has the same method as declared in the parent cls  is known AS the method overriding
+
+ RULES FOR THE METHOD OVERRIDING
+the method must be hav the same name as in th parent cls
+the meod must have the same parameters as in the parent cls 
+there must be an is a relationship 
+
+ why we cant we not override
+because the static method isbound with cls whereas instance method is bound with an object 
+
+
+covarient advantages
+it is return type assist to stay away ffrom the confusing type casts in the cls  hierarchy and make code more usable 
+readable, maintainable
+return type provides the libberty to have more to the points return types
+return type helps inpreventing the run time cls cast exceptation on return
+
+
+
+
+how covariant return type implemented
+
+usage of java super keyword
+supercan be used to refer immediate parent cls instance variable
+su[er can be used to invoke immediate paret cls method
+super can be to invoke immediate prent cls constructor
+
+class Animal{
+string color ="white";
+}
+class Dog extends Animal{
+string color="black";
+void printcolor(){
+systeem.out.println(color);//prints color of DOg class
+system.out.println(super.color);//prints color of annimal class
+
+}
+}
+class TestSuper1{
+public static void main(string argus[]){
+Dog d=newDog();
+d.printColor();
+}}
+
+
+ black 
+ white
+
+
+
+2. example 
+
+class Animl{
+void eat(){system.out.println("eating...");
+}
+classDog extends Animal{
+void eat(){system.out.println("eating bread");}
+void bark(){system.out.println("barking");}
+void work(){
+super.eat();
+bark()
+}
+}
+
+
+ eating
+barking
+
+3. eg: class Animal{
+Animal(){system.out.println("animal is created");}
+}
+class Dog extends Animal{
+Dog(){
+super();
+system.out.println("dog is created");
+}
+}
+class TestSuper3{
+public static void main(string args[]){
+Dog d=new Dog();
+}} 
+
+out put 
+ animl is created 
+dog is created
+
+ note : supeer() is added in each cls constructor automatically nby complier if there is no super()
+  
+eg for instance initializer block
+ class Bike7{
+intspeed;
+
+
+Bike7(){system.out.println("spped is"+speed);}
+
+{speed= 100;}
+
+public static void main(string args[]){
+Bike7 b1=new Bike7();
+Bike7 b2=new Bike();
+}
+
+} 
+
+output : speed is 100
+         speed is 100
+
+
+ rule  for instanccce initilazer
+
+
+thet are 3 types
+it is created when instance of the class is created
+the instance initializer block is invoked after the  parent cls constructor is invoked 
+the block comes in the order in the which they appear
+
+
+final key:  vaiable: u cannt change the value of final variable
+
+eg :  cls Bike9{
+final intspeedlimit=90;//final variable
+void run(){
+speedlimit=400;
+}
+public static void main(string args[]){
+Bike9 obj=new Bike9();
+obj.run();
+}
+}//end of cls
+
+output: compile Time Error
+
+
+ 
+ eg for 2.method
+ class Bike{
+ final void run(){system.out.println("running");}
+}
+class Honda extends Bike{
+
+ void run(){system.out.println("running safely with 100kmph");}
+
+
+polymorphism: which we can perform a single action in different ways
+ ploy=many
+ morphism=forms
+
+
+runtime polymorphism : it is a process in which a call toan overhidden method is resolved at runtime
+
+eg for 
+class A{}
+class B extendsA{}
+ A a=newB();//upcasting
+
+
+interface|{}
+class A{}
+classB extends A implements|{}
+
+B is a A
+B is a I
+B is a object
+
+abstraction: it is a process of hiding the implementation details and showing only 
+             functionality to the user 
+
+
+ways to achieve abstraction: 2 types 
+ 1. abstract clss : a class which is declared as abstract is known as an abstract clss.it can have 
+abstract and non abstract methods it needs to be extended and its method implemeented but it cannt be instantiated
+2. interface
+ 
+
+
+
+
+
+
+
+
+
+
+public static void main(string args[]){
+Honda honda= newHonda();
+honda.run();
+}
+}
+
+3. cls
+for eg
+final cls Bike{}
+
+ class Honda 1 extends Bike{
+
+void run(){system.out.println("running safely with 100kmph");}
+
+public static void main (string args[]){
+Honda1honda=newHonda1()
+honda.run();
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

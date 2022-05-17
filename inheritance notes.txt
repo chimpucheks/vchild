@@ -1,0 +1,41 @@
+     LANGUAGE FUNDAMENTALS
+
+ * INHERITANCE AND POLYMORPHISM
+ * TYPES OF INHERITANCE
+ * TYPES OF POLYMORPHISM
+  method overloading, method over riding, final key, relationship vs has a relationship, object class,
+   important methods of class object - has code (), equals(), clone(), to string()
+
+* abstract classes 
+
+
+
+inheritance is amechanism in which one object acquries all the properities and behave of  a parent object
+it is an important part of oops ( object oriented programming system) is a relationship 
+
+
+*terms used in interitance:
+ class : a class is a group of objects whih have a common properties. 
+ parent class: super class is a class fom where a sub class  inherites the features
+ subclass: it is a class which inherits the other class
+
+following this syntax : class Subclass_name extends super class_name 
+{
+//methods and fields 
+}
+
+
+types of inheritance : 4 types
+ single inheritance 
+ class Employee
+{
+float salary= 34534*12;
+}
+public class Executive extends Employee
+{
+float bonus=3000*6;
+
+public static void main(stringargs[])
+{
+Executive obj=new Executive();
+system.out.println("Total salary credited:"+obje.salary);

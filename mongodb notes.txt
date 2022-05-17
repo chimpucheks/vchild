@@ -1,0 +1,41 @@
+1. mongoDB help
+db.help 
+
+2. Show All Databases
+show dbs
+
+
+3.Create new database
+use DATABASE_NAME
+
+
+4. Know your current selected database
+db
+
+
+5. Drop database
+db.dropDatabase()
+
+6. Create collection
+db.createCollection(name)
+
+
+7. To check collections list
+Show collections
+
+
+8. Drop collection
+db.COLLECTION_NAME.drop()
+
+
+9. Insert document in collection
+>db.COLLECTION_NAME.insert(document)
+
+
+10. Get collection document
+>db.COLLECTION_NAME.find()
+
+
+
+11. Delete document
+>db.COLLECTION_NAME.remove(DELLETION_CRITTERIA)

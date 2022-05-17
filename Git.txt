@@ -1,0 +1,173 @@
+Removing File From the Staging Area
+
+git add newfile3.txt
+add all and updatedfiles
+git add ignore removal
+
+git add-u
+add file
+ git add *.java
+git undo
+git reset<filename> 
+
+
+git commit 
+git commit command
+git commit
+new file1.txt
+
+
+git commit -a
+git commit -m
+git commit 
+git undo commit
+git revert commit
+git remove commit
+git add <file name>
+git status
+git loggit reset --hard
+it will mive the head pointer
+it will updated the staging area with the contentthat the head is point
+git revert <commit- ish>
+cleanup
+no commit
+git revert merge
+my file design2.css merge with test2
+
+
+git reset
+soft
+mixed
+hard
+new file22.txt
+
+git reset head
+git reset to commit
+git reset<option> <comit-sha>
+
+git rm
+git rm command
+git rm <file name>
+git commit-m
+git status
+undo git rm 
+git reset head
+git cherry-pick
+
+scenerio:1 
+git cherry-pick<commit id>
+scenerio :2
+
+
+git log
+commit hash
+commit author metadata
+commit date metadata
+commit message
+
+exit log command
+basic git log
+git log oneline
+git log --oneline
+git log stat
+git log --patch
+git log --graph
+commit history
+git long --after="yy-mm-dd"
+by author
+git log --author=name
+by commit msg
+git log --grep=commit msg
+
+
+git diff
+scenerio 1:
+git status
+gitadd <file name>
+git diff--staged
+git diff head
+scenerio 4
+
+
+git diff branches
+git status
+status syntaxt:echo"txt>filename
+git rm <file name>
+
+git clone
+git clone command
+step 1
+step 2
+git clone -b<branchname> <repository url>
+
+
+git stash 
+git stash save 
+gitstash list 
+git stash apply
+git stash changes
+git stash pop
+git stash drop 
+git stash clear 
+git stash branch
+ stashing work
+git status
+git stash save <stashing msg>
+git stash drop <stash id>
+
+git ignore
+ignore 
+git ignore files
+touch .gitignore
+git add.git ignore
+
+
+
+how ignore files 
+git ls-files-ignore--exclude-standard
+ git fork
+ how to fork a repository
+fork vs clone
+ 
+git repository
+  
+
+git squash
+git squash commit 
+git log --oneline
+git rebase-ihead
+git push origin master
+
+drawback of squashing
+git fetch
+git fetch<repository url>
+git fetch <branch url><branch name>
+git fetch -all
+git fetch origin
+ git pull=git fetch+git merge
+
+
+ git pull
+git pull command
+git pull <option><repository url><refspec>...
+
+how to use pull
+default git pull
+git pull
+git pull origin master<option><removte>/<branch>
+git remote-v
+
+git pull request 
+
+
+
+
+ssh-keygen -b 2048 -t rsa
+git clone
+touch demo.txt 
+git pull
+git status
+git add .
+git status
+git commit -m "hello"
+git  push origin main
