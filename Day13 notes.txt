@@ -1,0 +1,271 @@
+				TOPIC: JDBC AND FUNCTIONAL INTERFACE
+1.introduction to jdbc: java Database connectivity. current versioon pf jdbc is 4.3 since 21st sep,2017
+driver interface
+connection iinterface
+statemnet interface
+preparedstatement interface 
+callable statemnt interface
+result set interface
+ResultsetMetaData interface
+DataBaseMetaData interface
+Rowset interface
+
+popular class:
+Driver Manager Class
+Blob class
+Clob class
+Type class
+
+Activites :
+1. connect to the database
+2.Execute queries and update statement to the database
+3.Retrieve the result received from the database.
+
+API -stands for Application Programming Interface
+ODBC- stands for Open Database Connectivity
+
+
+2.types of drivers
+
+jDBC -ODBC(BRIGE DRIVER): driver use ODBC  driver to connect to the database .the JDBC-ODBC bridge driver converts JDBC method calls into
+ ODBC functional calls.
+
+NATIVE -API: driver uses the client-side libraiers of the database.
+NETWORK PROTOCOL DRIVERS: drivers use middleware(application server) that converts JDBC calls directly
+THIN DRIVERS: driver converts JDBC directly into the vendor-specific database protocol
+
+3.JDBC PROGRAM TO RUN BASIC SQL QUERIES (select,insert, update,delete)
+Example of PreparedStatement interface that inserts the record
+import java.sql.*;  
+class InsertPrepared{  
+public static void main(String args[]){  
+try{  
+Class.forName("oracle.jdbc.driver.OracleDriver");  
+  
+Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");  
+  
+PreparedStatement stmt=con.prepareStatement("insert into Emp values(?,?)");  
+stmt.setInt(1,101);//1 specifies the first parameter in the query  
+stmt.setString(2,"Ratan");  
+  
+int i=stmt.executeUpdate();  
+System.out.println(i+" records inserted");  
+  
+con.close();  
+  
+}catch(Exception e){ System.out.println(e);}  
+  
+}  
+}  
+
+Example of PreparedStatement interface that updates the record
+PreparedStatement stmt=con.prepareStatement("update emp set name=? where id=?");  
+stmt.setString(1,"Sonoo");//1 specifies the first parameter in the query i.e. name  
+stmt.setInt(2,101);  
+  
+int i=stmt.executeUpdate();  
+System.out.println(i+" records updated");  
+
+
+
+Example of PreparedStatement interface that deletes the record
+PreparedStatement stmt=con.prepareStatement("delete from emp where id=?");  
+stmt.setInt(1,101);  
+  
+int i=stmt.executeUpdate();  
+System.out.println(i+" records deleted");  
+
+
+Example of PreparedStatement interface that retrieve the records of a table
+PreparedStatement stmt=con.prepareStatement("select * from emp");  
+ResultSet rs=stmt.executeQuery();  
+while(rs.next()){  
+System.out.println(rs.getInt(1)+" "+rs.getString(2));  
+}  
+
+
+4.statement,prepared statement & collable statement
+prepared statement example:
+String sql="insert into emp values(?,?,?)";
+
+syntax for prepared statement
+public preparedStatement prepareStatement(String query)throwa SQLException{}
+
+
+example  for the prepared statement 
+import java.sql.*;
+class InsertPrepared{
+public static  void main(String args[]){
+try{
+class.forName("oracle.jdbc.driver.OracleDriver");
+
+connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+
+preparedStatement stmt=con.prepareStatement("insert into Emp values(?,?)");
+stmt.setln(1,101);//1 specifies the first parameter in the query
+stmt.setString(2,"Rathana");
+
+
+stmti=stmt.excuteUpdate();
+system.out.println(i+"records inserted");
+
+
+
+con.close();
+catch(Exception e){system.out.println(e);}
+}
+}
+
+
+stored producer example
+ 
+create or replace procedure "INSERT"
+(id IN NUMBER,
+name IN VARCHAR2)
+IS
+begin
+insert into user420 values(id,name);
+end;
+
+/
+
+
+
+iport java.sql*;
+public class proc{
+public static void main(String[] args)throws Exception{
+
+class.forName("oracle.jdbc.driver.oracleDriver");
+connection con=DriverManager.getCollection(
+"jdbc:oracle:thin@localhost:1521:xe"",system","Oracle");
+
+
+callableStatement stmt=con.prepareCall("{call insertR(?,?)}");
+stmt.setlnt(1,1011);
+stmt.setString(2,"Rahul");
+stmt.execute();
+
+
+system.out.println("success");
+}
+}
+
+
+5.fuctional interface
+
+SAM: (single Abstract Method)
+
+
+@FunctionalInterface  
+interface sayable{  
+    void say(String msg);  
+}  
+public class FunctionalInterfaceExample implements sayable{  
+    public void say(String msg){  
+        System.out.println(msg);  
+    }  
+    public static void main(String[] args) {  
+        FunctionalInterfaceExample fie = new FunctionalInterfaceExample();  
+        fie.say("Hello there");  
+    }  
+}  
+
+
+@FunctionalInterface  
+interface sayable{  
+    void say(String msg);   // abstract method  
+    // It can contain any number of Object class methods.  
+    int hashCode();  
+    String toString();  
+    boolean equals(Object obj);  
+}  
+public class FunctionalInterfaceExample2 implements sayable{  
+    public void say(String msg){  
+        System.out.println(msg);  
+    }  
+    public static void main(String[] args) {  
+        FunctionalInterfaceExample2 fie = new FunctionalInterfaceExample2();  
+        fie.say("Hello there");  
+    }  
+}  
+
+
+Invalid Functional Interface
+
+interface sayable{  
+    void say(String msg);   // abstract method  
+}  
+@FunctionalInterface  
+interface Doable extends sayable{  
+    // Invalid '@FunctionalInterface' annotation; Doable is not a functional interface  
+    void doIt();  
+}  
+
+
+interface Doable{  
+    default void doIt(){  
+        System.out.println("Do it now");  
+    }  
+} 
+
+
+example ;3 
+@FunctionalInterface  
+interface Sayable extends Doable{  
+    void say(String msg);   // abstract method  
+}  
+public class FunctionalInterfaceExample3 implements Sayable{  
+    public void say(String msg){  
+        System.out.println(msg);  
+    }  
+    public static void main(String[] args) {  
+        FunctionalInterfaceExample3 fie = new FunctionalInterfaceExample3();  
+        fie.say("Hello there");  
+        fie.doIt();  
+    }  
+}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ssss
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
