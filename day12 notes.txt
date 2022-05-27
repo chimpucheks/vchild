@@ -1,0 +1,548 @@
+		 TOPIC : COLLECTION FRAMES
+1.collection object using collection class:
+
+import java.until.*;
+public class CollectionExample{
+pulic static void main(String a[]){
+List<String> list=new ArrayList<String>();
+list.add("c");
+list.add("Core Java");
+list.add("Advance Java");
+system.out.println("Initial Collection Value:"+list);
+Collections.addall(list,"servelt","Jsp");
+system.out.println("After adding elements collection value:"+list);
+String[] strArr={"C#",".Net"};
+Collections.addAll(list,strArr);
+system.out.println("After adding array collection value:"=list);
+}
+}
+
+collection example:max()
+import java.until.*;
+public class CollectionsExample{
+public static void main(String a[]){
+	LIst<Integer> list=new ArrayList<Integer>();
+	list.add(46);
+	list.add(67);
+	llist.add(24);
+	list.add(16);
+	list.add(8);
+	list.add(12);
+system.out.println("Value of maximum eelements from the collection:"+Collections.max(list));
+
+	}
+
+
+}
+
+
+sorting collection ;
+1. string object
+2.wrapper class object;
+3.user-defined class object;
+
+
+
+1.sort string object:
+import java.until.*;
+class TestSort1{
+public static void main(String args[]){
+
+	ArrayList<String> al=new ArrayList<String>();
+	al.add("Viru");
+	al.add("saurav");
+	al.add("Mukesh");
+	al.add("Thair");
+
+
+
+	Collections.sort(al); 
+	iterator itr=al.iterator();
+	while(itr.hasNext()){
+	system.out.println(itr.next());
+	}
+}
+
+2.example to sort object in reverse order:
+import java.until.*;
+public staic void main(String args[]){
+  
+
+ArrayList<String> al=new ArrayList<String>();
+  	al.add("viru");
+	al.add ("Saurav");
+	al.add("Mukesh");
+	al.add("Tahir");
+
+
+
+Collection.sort(al,collections.reverseOrder());
+	iterator i=al.iterator();
+	while(i.hasNext())
+
+	{
+	system.out.println(i.next());
+}
+}
+
+example for wrapper class object:
+import java.util.*;
+class TestSort3{
+public static  void main(string args[]){
+
+
+ArrayList al=new ArrayList();
+	al.add(integer.valueOf(201));
+	al.add(Integer.valueOf(101));
+	al.add(230);//internally will be converted into object aas integer.valueOf(230)
+
+Collections.sort(al);
+
+
+	iterartor itr=al.iterator();
+	while(itr.hasNext()){
+	system.out.println(itr.next());
+	}
+}
+
+Example to sort user-defined class objects
+
+import java.util.*;  
+  
+class Student implements Comparable<Student> {  
+    public String name;  
+  public Student(String name) {  
+    this.name = name;  
+  }  
+  public int compareTo(Student person) {  
+    return name.compareTo(person.name);  
+      
+  }   
+}  
+public class TestSort4 {  
+  public static void main(String[] args) {  
+      ArrayList<Student> al=new ArrayList<Student>();  
+      al.add(new Student("Viru"));  
+      al.add(new Student("Saurav"));  
+      al.add(new Student("Mukesh"));  
+      al.add(new Student("Tahir"));  
+      
+    Collections.sort(al);  
+    for (Student s : al) {  
+      System.out.println(s.name);  
+    }  
+  }  
+}  
+
+
+3.fail fast examples
+
+import java.util.HashMap;
+	import java.util.iterator;
+	import java.until.Map;
+public class FailFastDemo{
+	public static  void main(String[] args)
+	{
+	Map<String,string>empName=new HashMap<String,String>();
+	empName.put("sam Hanks","New york");
+	empName.put("will smith","LA");
+	empName.put("Scarlett","Chicago");
+	iterator iterator=empName.keyset().iterator();
+	While (iterator.has.Next()){
+
+		system.out.println(empName.get(iterator.next());
+	//adding an element to map
+	//exception will be thrown on next call
+	//of next()method.
+
+	empName.put("Istanbul","Turkey");
+
+	}
+}
+
+eg:
+FailSafeDemo.java:
+
+import java.util.concurrent.CopyOnWriteArrayList;   
+import java.util.Iterator;   
+class FailSafeDemo {   
+    public static void main(String args[])   
+    {   
+        CopyOnWriteArrayList<Integer> list   
+            = new CopyOnWriteArrayList<Integer>(new Integer[] { 1, 7, 9, 11 });   
+        Iterator itr = list.iterator();   
+        while (itr.hasNext()) {   
+            Integer i = (Integer)itr.next();   
+            System.out.println(i);   
+            if (i == 7)   
+                list.add(15); // It will not be printed  
+            //This means it has created a separate copy of the collection  
+        }   
+    }   
+}   
+
+eg: FailSafeDemo1.java:
+
+import java.util.concurrent.ConcurrentHashMap;   
+import java.util.Iterator;   
+public class FailSafeDemo1 {   
+    public static void main(String[] args)   
+    {   
+        // Initializing a ConcurrentHashMap   
+        ConcurrentHashMap<String, Integer> m   
+            = new ConcurrentHashMap<String, Integer>();   
+        m.put("ONE", 1); //Adding values  
+        m.put("SEVEN", 7);   
+        m.put("FIVE", 5);   
+        m.put("EIGHT", 8);   
+        // Getting an iterator using map  
+        Iterator it = m.keySet().iterator();   
+        while (it.hasNext()) {   
+            String key = (String)it.next();   
+            System.out.println(key + " : " + m.get(key));   
+            // This will reflect in iterator.   
+            // This means it has not created separate copy of objects  
+            m.put("NINE", 9);   
+        }   
+    }   
+} 
+
+ 
+Using generic class:
+class TestGenerics3{  
+public static void main(String args[]){  
+MyGen<Integer> m=new MyGen<Integer>();  
+m.add(2);  
+//m.add("vivek");//Compile time error  
+System.out.println(m.get());  
+}}  
+
+
+
+4. WHY GENERICS
+type-safety; we can hold only a single type of objects in generics
+List list=new ArrayList();
+list.add(10);
+list.add("10");
+with Generics,it is requried to specify the type of object we need to store.
+List<integer>List=new ArrayList<integer>();
+list.add(10);
+list.add("10");//complier-time error
+
+2.type casting is not requried  the object
+List list=new Arraylist();
+list.add("hello");
+String s=(String)list.get(0);//typecasting
+After Generics,we dont need to typecastthe object.
+List<String>list=new ArrayList<String>();
+list.add("hello");
+String s=llist.get(0);
+
+3. compile-time checking:
+list<String>list=new ArrayList<string>();
+list.add("hello");
+list.add(32);//Compile Time Error
+
+
+full example of generics
+import java.until.*;
+class TestGenerics1{
+public static void main(string args[]){
+arraylist<String> list=new ArrayList<String>()
+list.add("rahul");
+list.add("jai");
+//list.add(32);//Compile time error
+
+
+
+string s=list.get(1);//type casting is  not required
+system.out.println("elemnt is:"+s);
+
+
+iterator<String> itr=list.iterator();
+while(itr.hasNext()){
+system.out.println(itr.next());
+}
+}
+}
+
+5.wild cards:
+import java.util.*;
+abstract class shape{
+abstract void draw();
+}
+class Rectangle extends shape{
+void draw()system.out.println("drawing rectangle");}
+}
+class Circle extends Shape{
+void draw(){System.out.println("drawing circle");}
+}
+class GenericsTest{
+//creating a method that accepts only child class of shape
+public static void drawShape(List<?extends shape>lists){
+for (Shape s:lists){
+s.draw();//calling method of shape class by child class instance
+}
+}
+pulic static void main(String args[]){
+List<Rectangle>list1=new ArrayList<Rectangle>();
+list1.add(new Rectangle());
+
+lList<Cricle>list2=new ArrayList<Circle>();
+list2.add(new Cricle());
+list2.add(new Cricle());
+
+
+drawShape(list1);
+drawShape(list2);
+}
+}
+
+
+
+6upper Bound Wildcard
+
+import java.util.ArrayList;
+
+
+public class UpperBoundWildCard{
+
+private static Double add(ArrayList<?extends Number> nnum){
+
+double sum=0.0;
+ for (number n:num)
+
+{
+sum=sum+n.doubleValue();
+}
+return sum;
+}
+public static void main(string[] args){
+
+ArrayList<integer>l1=new ArrayList<integer>();
+l1.add(10);
+l1.add(20);
+system.out.println("displaying the sum="+add(l1));
+
+
+
+ArrayList<Double>12=new ArrayList<Double>();
+l2.add(30.0);
+l2.add(40.0);
+system.out.println("displaying the sum="+add(l2));
+
+}
+}
+
+
+unbounded wildcards:
+import java.unti.Arrays;
+import java.util.List;
+public class unboundedWildcards{
+pulic static void display(List<?>list)
+{
+
+for (Object o:list)
+{
+system.out.println(o);
+}
+}
+
+public static void main(String[] args){
+
+List<integer>l1=Arrays.asList(1,2,3);
+System.out.println("displaying the integer values");
+display(l1);
+List<String>l2=Array.asList("One","Two","Three");
+system..out.println("displaying the string  values");
+display(l2);
+}
+}
+
+lower Bounded wildcards:
+import java.util.Arrays;
+import java.util.list'
+public class LowerBoundedWildCard{
+
+public static void addNumber(List<?Super integer.list){
+
+for(object n:list)
+{
+system.out.println(n);
+}
+
+
+
+
+}
+public staic void main(String[] args){
+
+List<integer>l1=Arrays.asList(1,2,3);
+system.out.println("displaying the integer values");
+addNumber(l1);
+
+List<Number>l2=Arrays.as(1.0,2.0,3.0);
+system.out.println("displaying the Number values");
+addNumber(l2);
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fail-fast vs fail-safe iterator
+why generics
+ generic types
+single type parameter
+multiple type parameter
+Bounded type parameter
+wild cards
